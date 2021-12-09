@@ -20,7 +20,7 @@ public class Square3x3 {
     /**
      * Constructs a 2-dimensional array of the size 3X3, whose values are taken from the given
      * array. If the given array’s size is bigger than 3X3, only the first 3X3 cells are taken. If the
-     * given array is smaller, the rest of the cells are initialized to –1.x
+     * given array is smaller, the rest of the cells are initialized to –1.
      * @param array 2 dimensional array from
      */
     public Square3x3(int[][]array){
@@ -28,10 +28,11 @@ public class Square3x3 {
         _cellArr = new int[3][3];
 
         int dereferenceRange = array.length;
-        int innerDereferenceRange = 0;
+
 
         for (int i = 0 ; i <3 ; i++ ){
             // Retrieves current iteration's second index length to combat unequal length of seconds index
+            int innerDereferenceRange = 0;
             if(i<dereferenceRange)
                 innerDereferenceRange = array[i].length;
             for(int j = 0 ; j< 3 ; j++){
@@ -70,7 +71,7 @@ public class Square3x3 {
     public int getCell(int row,int col){
 
         //Check if dereference given is valid, returns -1 if not
-        if(!isValidRowCol(row,col)){
+        if(!_isValidRowCol(row,col)){
             return -1;
         }
         return _cellArr[row][col];
@@ -86,7 +87,7 @@ public class Square3x3 {
      */
     public void setXY(int row,int col,int value){
         //Checks if row&col are valid before dereferences array
-        if(isValidRowCol(row,col)){
+        if(_isValidRowCol(row,col)){
             _cellArr[row][col] = value;
         }
     }
@@ -158,8 +159,8 @@ public class Square3x3 {
      * @param col col index
      * @return true if row&col given are valid
      */
-    private boolean isValidRowCol(int row, int col){
-        return isValidOffset(row)&&isValidOffset(col);
+    private boolean _isValidRowCol(int row, int col){
+        return _isValidOffset(row)&&_isValidOffset(col);
     }
 
     /**
@@ -167,7 +168,7 @@ public class Square3x3 {
      * @param offset index in grid
      * @return true if offset is valid (0-2)
      */
-    private boolean isValidOffset(int offset){
+    private boolean _isValidOffset(int offset){
         return !(offset > 2);
     }
 
@@ -178,7 +179,7 @@ public class Square3x3 {
      * @param identifier type of element, "row" for row, any other string with represent a col index
      */
     private void _whosThereElement (int elementIndex, boolean[] values , String identifier ){
-        if(isValidOffset(elementIndex)) {
+        if(_isValidOffset(elementIndex)) {
 
             int currentCellValue;
 

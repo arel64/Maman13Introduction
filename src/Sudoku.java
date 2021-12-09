@@ -123,7 +123,7 @@ public class Sudoku {
 
         //Iterator is init to array bounds
         for (int i = offset ; i < arr.length ; i++){
-            if(!arr[i]) return false; // if one of the indexes in range are false return false without checking the rest
+            if(!arr[i]) return false; // if one of the indexes in range are false return it without checking the rest
         }
         return true;
     }
